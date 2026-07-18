@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semangat Sayang! 🌟</title>
+    <style>
+        /* Gaya dasar yang ceria dan penuh semangat */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 20px;
+            transition: background 0.5s ease;
+        }
+
+        /* Kartu utama dengan efek lembut */
+        .card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 60px 20px 60px 20px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px 45px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Emoji / ikon utama */
+        .icon-big {
+            font-size: 70px;
+            line-height: 1;
+            margin-bottom: 10px;
+            display: block;
+            animation: heartbeat 1.8s infinite ease-in-out;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Judul dengan gradasi */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 10px 0 8px;
+            letter-spacing: -0.5px;
+            word-break: break-word;
+        }
+
+        /* Pesan semangat */
+        .sub-message {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2d3436;
+            margin: 12px 0 20px;
+            padding: 0 10px;
+            line-height: 1.6;
+        }
+
+        .sub-message span {
+            background: linear-gradient(120deg, #ffeaa7 0%, #ffeaa7 40%, transparent 80%);
+            padding: 0 8px;
+            border-radius: 20px;
+        }
+
+        /* Kutipan penyemangat */
+        .quote-box {
+            background: rgba(253, 203, 110, 0.2);
+            border-left: 5px solid #fdcb6e;
+            padding: 18px 20px;
+            border-radius: 30px 10px 30px 10px;
+            margin: 25px 0 30px;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #2d2d2d;
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 0 0 1px rgba(255, 215, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .quote-box:hover {
+            background: rgba(253, 203, 110, 0.35);
+            transform: scale(1.01);
+        }
+
+        .quote-box i {
+            color: #e17055;
+            font-size: 1.4rem;
+        }
+
+        /* Tombol ajaib */
+        .btn-magic {
+            background: linear-gradient(145deg, #ff9ff3, #f368e0);
+            border: none;
+            border-radius: 60px;
+            padding: 16px 40px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 12px 25px rgba(243, 104, 224, 0.4);
+            transition: all 0.25s ease;
+            margin: 15px 0 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-magic:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 35px rgba(243, 104, 224, 0.5);
+            background: linear-gradient(145deg, #ff7eb3, #f368e0);
+        }
+
+        .btn-magic:active {
+            transform: scale(0.96);
+            box-shadow: 0 6px 15px rgba(243, 104, 224, 0.3);
+        }
+
+        /* Area untuk pesan dinamis */
+        .dynamic-message {
+            margin-top: 28px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            min-height: 4.5rem;
+            color: #2d3436;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 50px;
+            padding: 18px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            transition: 0.3s;
+            word-break: break-word;
+        }
+
+        .dynamic-message span {
+            background: #ffeaa7;
+            padding: 4px 15px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        /* Countdown / loading kecil */
+        .loading-dots::after {
+            content: '...';
+            animation: dots 1.2s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+
+        /* Footer kecil */
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #636e72;
+            opacity: 0.8;
+            letter-spacing: 0.3px;
+            border-top: 1px dashed rgba(0,0,0,0.08);
+            padding-top: 22px;
+        }
+
+        .footer-note i {
+            color: #ff7675;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 18px;
+                border-radius: 40px 15px 40px 15px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .sub-message {
+                font-size: 1.1rem;
+            }
+            .btn-magic {
+                font-size: 1.2rem;
+                padding: 14px 28px;
+                gap: 8px;
+            }
+            .dynamic-message {
+                font-size: 1.2rem;
+                padding: 14px 12px;
+            }
+            .icon-big {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Ikon utama dengan animasi -->
+        <span class="icon-big">💖</span>
+
+        <h1>Semangat Sayang!</h1>
+        <div class="sub-message">
+            <span>✨ Semoga hari-harimu lancar & penuh cinta ✨</span>
+        </div>
+
+        <!-- Kutipan penyemangat -->
+        <div class="quote-box">
+            <i>“</i>  Kamu lebih kuat dari yang kamu kira, dan aku selalu di sini untukmu.  <i>”</i>
+        </div>
+
+        <!-- Tombol ajaib untuk memunculkan semangat baru -->
+        <button class="btn-magic" id="magicButton">
+            <span>🌟</span>  Klik untuk semangat  <span>🌟</span>
+        </button>
+
+        <!-- Area pesan dinamis -->
+        <div class="dynamic-message" id="messageDisplay">
+            <span>🤗</span>  Kamu pasti bisa!  <span>🤗</span>
+        </div>
+
+        <div class="footer-note">
+            <i>❤️</i>  selalu ingat, aku bangga padamu  <i>❤️</i>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Kumpulan pesan semangat yang beragam
+            const quotes = [
+                { emoji: '💪', text: 'Kamu hebat! Hari ini akan jadi hari yang luar biasa.' },
+                { emoji: '🌈', text: 'Jangan pernah menyerah, keajaiban sedang dalam perjalanan.' },
+                { emoji: '🔥', text: 'Semangatmu membara, teruslah melangkah!' },
+                { emoji: '🌟', text: 'Setiap usaha kecil berarti, aku percaya padamu.' },
+                { emoji: '🍀', text: 'Semoga kemudahan menghampirimu di setiap langkah.' },
+                { emoji: '💖', text: 'Kamu adalah cahaya di hariku, tetap bersinar!' },
+                { emoji: '✨', text: 'Lancar jaya! Semua akan indah pada waktunya.' },
+                { emoji: '🌺', text: 'Tenang, kamu mampu menghadapi semuanya.' },
+                { emoji: '🎯', text: 'Fokus pada tujuan, hasil akan mengikuti.' },
+                { emoji: '🌻', text: 'Kebaikan akan kembali padamu, teruslah berusaha.' },
+                { emoji: '💎', text: 'Kamu berharga, dan hari ini adalah milikmu.' },
+                { emoji: '🦋', text: 'Perubahan indah sedang terjadi. Percayalah.' }
+            ];
+
+            // Elemen-elemen
+            const messageDisplay = document.getElementById('messageDisplay');
+            const magicButton = document.getElementById('magicButton');
+
+            // Variabel untuk animasi loading
+            let isAnimating = false;
+            let timeoutId = null;
+            let lastIndex = -1;
+
+            // Fungsi untuk mendapatkan pesan acak (tidak berulang dengan yang terakhir)
+            function getRandomQuote() {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * quotes.length);
+                } while (newIndex === lastIndex && quotes.length > 1);
+                lastIndex = newIndex;
+                return quotes[newIndex];
+            }
+
+            // Fungsi untuk menampilkan pesan dengan efek "loading" sejenak
+            function updateMessageWithDelay() {
+                // Jika sedang animasi, batalkan sebelumnya
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+                if (isAnimating) return;
+
+                isAnimating = true;
+                magicButton.disabled = true;
+                magicButton.style.opacity = '0.7';
+                magicButton.style.cursor = 'default';
+
+                // Tampilkan efek loading (tiga titik)
+                messageDisplay.innerHTML = `<span>⏳</span>  Menyiapkan semangat<span class="loading-dots"></span>`;
+
+                // Setelah 800ms, tampilkan pesan baru
+                timeoutId = setTimeout(() => {
+                    // Ambil pesan acak
+                    const randomQuote = getRandomQuote();
+                    // Tampilkan dengan emoji dan teks
+                    messageDisplay.innerHTML = `
+                        <span>${randomQuote.emoji}</span>  ${randomQuote.text}  <span>${randomQuote.emoji}</span>
+                    `;
+
+                    // Reset state
+                    isAnimating = false;
+                    magicButton.disabled = false;
+                    magicButton.style.opacity = '1';
+                    magicButton.style.cursor = 'pointer';
+                    timeoutId = null;
+                }, 800);
+            }
+
+            // Event listener untuk tombol
+            magicButton.addEventListener('click', updateMessageWithDelay);
+
+            // Opsional: Saat halaman dimuat, tampilkan satu pesan random (tapi biarkan default dulu)
+            // Kita bisa biarkan default dari HTML, atau timpa dengan random. Saya timpa agar lebih dinamis.
+            window.addEventListener('load', function() {
+                // Tampilkan pesan random saat load (setelah 1 detik agar transisi halus)
+                setTimeout(() => {
+                    const firstQuote = getRandomQuote();
+                    messageDisplay.innerHTML = `
+                        <span>${firstQuote.emoji}</span>  ${firstQuote.text}  <span>${firstQuote.emoji}</span>
+                    `;
+                }, 300);
+            });
+
+            // Efek tambahan: saat mouse meninggalkan tombol, jika tidak animasi, tidak apa
+            // Dan pastikan tidak ada konflik
+            console.log('✨ Semangat sayang! Semoga lancar selalu ✨');
+        })();
+    </script>
+</body>
+</html>
