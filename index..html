@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Pacarku Tersayang ❤️</title>
+    <!-- Font & Ikon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 48px 48px 48px 48px;
+            box-shadow: 0 25px 40px -10px rgba(233, 30, 99, 0.3);
+            padding: 30px 25px 35px;
+            text-align: center;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 30px 50px -12px rgba(233, 30, 99, 0.4);
+        }
+
+        /* Foto bundar dengan efek glow */
+        .photo-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 18px;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.25);
+            transition: 0.3s;
+            background: #fce4ec;
+        }
+
+        .photo-wrapper::after {
+            content: "❤️";
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            font-size: 28px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            background: white;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #f06292;
+        }
+
+        /* teks utama */
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ad1457;
+            margin: 6px 0 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .sub-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #d81b60;
+            background: rgba(248, 187, 208, 0.3);
+            display: inline-block;
+            padding: 4px 20px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 16px;
+            border: 1px solid #f8bbd0;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 18px 16px;
+            border-radius: 32px;
+            margin: 12px 0 22px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 2px 6px rgba(233, 30, 99, 0.05);
+        }
+
+        .message-box p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #4a1a2c;
+            font-weight: 500;
+        }
+
+        .message-box i {
+            color: #d81b60;
+            margin: 0 4px;
+        }
+
+        .btn-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #d81b60;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 14px 28px;
+            border-radius: 60px;
+            border: none;
+            box-shadow: 0 10px 20px -6px #d81b60a0;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 8px 0 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-support i {
+            font-size: 22px;
+            transition: 0.2s;
+        }
+
+        .btn-support:hover {
+            background: #c2185b;
+            transform: scale(1.02);
+            box-shadow: 0 14px 26px -8px #ad1457;
+        }
+
+        .btn-support:active {
+            transform: scale(0.96);
+        }
+
+        .footer-message {
+            font-size: 15px;
+            color: #880e4f;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px 14px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            margin-top: 10px;
+            border: 1px solid #f8bbd0;
+        }
+
+        .footer-message i {
+            color: #d81b60;
+            margin: 0 4px;
+        }
+
+        /* animasi kecil untuk ikon hati */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .fa-heart {
+            animation: heartbeat 1.8s infinite ease-in-out;
+        }
+
+        /* responsif */
+        @media (max-width: 480px) {
+            .card { padding: 22px 18px; }
+            .photo-wrapper { width: 130px; height: 130px; }
+            h1 { font-size: 22px; }
+            .btn-support { font-size: 16px; padding: 12px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- FOTO PACAR (ganti src dengan foto dia) -->
+    <div class="photo-wrapper">
+        <img src="https://i.pravatar.cc/300?img=12" alt="Foto pacar" />
+        <!-- ↑ Ganti link di atas dengan foto pacarmu (bisa pakai url gambar atau upload) -->
+    </div>
+
+    <h1>✨ Semangat Sayang! ✨</h1>
+    <div class="sub-name">💕 untuk kamu yang terbaik 💕</div>
+
+    <div class="message-box">
+        <p>
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+            Hai, cintaku… aku tahu hari-hari ini mungkin berat,
+            tapi ingatlah <strong>aku selalu ada di sini</strong>.
+            <br /><br />
+            <i class="fas fa-star" style="color:#f9a825;"></i>
+            Kamu lebih kuat dari yang kamu kira,
+            dan aku <strong>sangat bangga</strong> padamu.
+            <i class="fas fa-star" style="color:#f9a825;"></i>
+            <br /><br />
+            <i class="fas fa-hand-holding-heart"></i>
+            Apapun yang terjadi, <strong>aku selalu support kamu</strong>.
+            <i class="fas fa-hand-holding-heart"></i>
+        </p>
+    </div>
+
+    <!-- Tombol interaktif untuk memberi semangat ekstra -->
+    <button class="btn-support" id="supportBtn">
+        <i class="fas fa-heart" style="color:#ffddee;"></i>
+        Kirim Semangat!
+        <i class="fas fa-heart" style="color:#ffddee;"></i>
+    </button>
+
+    <div class="footer-message">
+        <i class="fas fa-heart"></i>
+        I LOVE YOU & ALWAYS SUPPORT YOU
+        <i class="fas fa-heart"></i>
+    </div>
+
+    <div style="margin-top: 16px; font-size: 14px; color: #880e4f; opacity:0.8; font-weight:500;">
+        <i class="fas fa-arrow-right"></i> kamu adalah semangatku <i class="fas fa-arrow-left"></i>
+    </div>
+</div>
+
+<script>
+    // ====== INTERAKSI KEREN ======
+    const btn = document.getElementById('supportBtn');
+    const messageBox = document.querySelector('.message-box p');
+
+    // Daftar pesan semangat tambahan (random)
+    const extraMessages = [
+        "Kamu hebat! Aku percaya padamu 💪❤️",
+        "Jangan menyerah, aku di sini selalu mendukungmu 🌟",
+        "Setiap langkah kecilmu berarti besar untukku 🥰",
+        "Kamu adalah pemenang di hatiku 🏆❤️",
+        "Aku sayang kamu, dan aku selalu support kamu! 💕",
+        "Hari ini akan indah, karena kamu ada ❤️✨",
+        "Kamu kuat, kamu berharga, dan kamu dicintai 💗"
+    ];
+
+    // Fungsi ubah pesan dengan efek
+    function giveSupport() {
+        // Ambil pesan acak
+        const randomIndex = Math.floor(Math.random() * extraMessages.length);
+        const newMessage = extraMessages[randomIndex];
+
+        // Tambahkan efek kilat (ubah warna sebentar)
+        messageBox.style.transition = '0.15s';
+        messageBox.style.color = '#ad1457';
+        messageBox.style.fontWeight = '600';
+
+        // Ubah teks dengan ikon tambahan
+        messageBox.innerHTML = `
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+            ${newMessage}
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+        `;
+
+        // Kembalikan warna setelah 200ms
+        setTimeout(() => {
+            messageBox.style.color = '#4a1a2c';
+            messageBox.style.fontWeight = '500';
+        }, 250);
+
+        // Animasi tombol
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            btn.style.transform = 'scale(1)';
+        }, 150);
+
+        // Efek notifikasi kecil (vibrasi jika support)
+        if (navigator.vibrate) {
+            navigator.vibrate(20);
+        }
+    }
+
+    // Event klik tombol
+    btn.addEventListener('click', giveSupport);
+
+    // Bonus: jika klik di card (selain tombol) juga muncul semangat, tapi lebih subtle
+    document.querySelector('.card').addEventListener('click', function(e) {
+        // Hindari jika yang diklik adalah tombol (agar tidak double)
+        if (e.target.closest('#supportBtn')) return;
+        // Tapi kita tetap kasih efek kecil (ubah pesan tanpa mengganggu)
+        const randomIndex = Math.floor(Math.random() * extraMessages.length);
+        const newMessage = extraMessages[randomIndex];
+        messageBox.innerHTML = `
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+            ${newMessage}
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+        `;
+        // efek cepat
+        messageBox.style.transition = '0.15s';
+        messageBox.style.color = '#ad1457';
+        setTimeout(() => {
+            messageBox.style.color = '#4a1a2c';
+        }, 200);
+    });
+
+    // Saat halaman dimuat, tampilkan pesan awal dengan animasi (opsional)
+    window.addEventListener('load', function() {
+        // Ubah sedikit pesan pertama agar lebih fresh (tapi tetap mempertahankan struktur)
+        const pesanAwal = `
+            <i class="fas fa-heart" style="color:#d81b60;"></i>
+            Hai sayang… aku tahu hari ini mungkin berat,
+            tapi ingatlah <strong>aku selalu ada di sini</strong>.
+            <br /><br />
+            <i class="fas fa-star" style="color:#f9a825;"></i>
+            Kamu lebih kuat dari yang kamu kira,
+            dan aku <strong>sangat bangga</strong> padamu.
+            <i class="fas fa-star" style="color:#f9a825;"></i>
+            <br /><br />
+            <i class="fas fa-hand-holding-heart"></i>
+            Apapun yang terjadi, <strong>aku selalu support kamu</strong>.
+            <i class="fas fa-hand-holding-heart"></i>
+        `;
+        messageBox.innerHTML = pesanAwal;
+    });
+
+</script>
+
+<!-- Catatan: Ganti foto pacar di bagian <img src="..."> dengan foto asli dia -->
+<!-- Kamu bisa upload foto ke imgur atau gunakan link langsung -->
+
+</body>
+</html>
